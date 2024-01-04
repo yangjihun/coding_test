@@ -1,7 +1,9 @@
+import sys
+input = sys.stdin.readline
 li = list()
 n = int(input())
 
-for i in range(n):
+for _ in range(n):
   an = input()
   if an[0]=="1":
     li.append(int(an[1:]))
