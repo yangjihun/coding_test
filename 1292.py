@@ -1,9 +1,10 @@
 s,e = map(int,input().split())
 li = list()
-key = 1
-while len(li)<e:
-  li+=[key]*key
-  key+=1
+
+for i in range(1,1001):
+  li+=[i]*i
+  if len(li)>=e:
+    break
 
 A = [0]*(len(li)+1)
 for i in range(1,len(li)+1):
