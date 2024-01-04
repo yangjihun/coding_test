@@ -1,4 +1,4 @@
-s,e = map(int,input().split())
+s,e = map(int,input().split())  # 시작점, 끝점 저장
 li = list()
 
 for i in range(1,1001):
@@ -6,7 +6,7 @@ for i in range(1,1001):
   if len(li)>=e:
     break
 
-A = [0]*(len(li)+1)
+A = [0]*(len(li)+1)  # 구간합이 저장할 list
 for i in range(1,len(li)+1):
   A[i] = A[i-1]+li[i-1]
 
