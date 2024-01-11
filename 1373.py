@@ -1,7 +1,9 @@
 jinsu_2 = input()
 jinsu_8 = ''
 
+# 2진수 3개씩 끊기
 jinsu_2 = '0'*(3-len(jinsu_2)%3) + jinsu_2
+
 
 for i in range(0,len(jinsu_2),3):
   key = 2
