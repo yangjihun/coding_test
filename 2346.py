@@ -1,12 +1,13 @@
+import sys
 from collections import deque
+input = sys.stdin.readline
 N = int(input())
-bloon = deque(range(1,N+1))
-key = deque(map(int,input().split()))
-for _ in range(len(key)):
-  print(bloon.popleft(), end=' ')
-  if key[0]>0:
-    bloon.rotate(key[0]-1)
-    key.rotate(key.popleft()-1)
+deq = deque(zip(range(1,N+1),map(int,input().split())))
+
+while deq:
+  idx,num = deq.popleft()
+  print(idx, end=' ')
+  if num>0:
+    deq.rotate(-(num-1))
   else:
-    bloon.rotate(key[0])
-    key.rotate(key.popleft())
+    deq.rotate(-num)
