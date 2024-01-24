@@ -1,5 +1,8 @@
+import sys
+input = sys.stdin.readline
+
 N = input()
-N_list = list(map(int,input().split()))
+N_list = set(map(int,input().split()))
 M = input()
 M_list = list(map(int,input().split()))
 
