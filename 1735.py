@@ -1,9 +1,12 @@
-a1,b1 = map(int,input().split())
-a2,b2 = map(int,input().split())
+def gcd(a,b):
+  while a%b!=0:
+    mod = a%b
+    a = b
+    b = mod
+  return b
 
-i,j = b1,b2
-while j>0:
-  i,j = j,i%j
-b = b1*b2//i
-a = a1*(b//b1) + a2*(b//b2)
-print(a,b)
+a,b = map(int,input().split())
+c,d = map(int,input().split())
+
+g = gcd(a*d+b*c, b*d)
+print((a*d+b*c)//g, (b*d)//g)
