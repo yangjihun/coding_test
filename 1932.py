@@ -1,6 +1,11 @@
 n = int(input())
-li = [0]
+li = []
 for _ in range(n):
-  past = li
-  li = list(map(int,input().split()))
-  
+  li.append(list(map(int,input().split())))
+
+li = li[::-1]
+for i in range(len(li)-1):
+  for k in range(len(li[i])-1):
+    li[i+1][k] += max(li[i][k],li[i][k+1])
+
+print(li[-1][0])
