@@ -1,12 +1,15 @@
-# input
 N = int(input())
-li = [0]
-for _ in range(N):
+li = []
+d = [0]*N
+for i in range(N):
   li.append(int(input()))
-li = li[::-1]
-result = li[0]
-
-for i in range(1,N,2):
-  result += max(li[i],li[i+1])
-
-print(result)
+d[0] = li[0]
+if N<2:
+  print(li[0])
+elif N<=2:
+  print(li[0]+li[1])
+else:
+  d[1] = li[0]+li[1]
+  for i in range(2,N):
+    d[i] = max(d[i-3]+li[i-1],d[i-2])+li[i]
+  print(d[-1])
