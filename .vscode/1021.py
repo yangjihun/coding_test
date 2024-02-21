@@ -1,23 +1,20 @@
 from collections import deque
-N,M = map(int,input().split())
-li = deque(range(1,N+1))
-A = list(map(int,input().split()))
-result = 0
-key = 0
+import sys
 
-while key!=M:
-  if li[key]==A[key]:
+input = sys.stdin.readline
+n,m = map(int,input().split())
+li = deque(range(1,n+1))
+a = list(map(int,input().split()))
+result = 0
+
+for i in a:
+  k = li.index(i)
+  if k<=len(li)//2:
+    result += k
+    li.rotate(-k)
     li.popleft()
-    key+=1
   else:
-    if (len(li)//2-li.index(A[key]))>0:
-      li.rotate(len(li)//2-li.index(A[key]))
-      li.popleft()
-      result+=(len(li)//2-li.index(A[key]))
-      key+=1
-    else:
-      li.rotate(-(len(li)//2-li.index(A[key])))
-      li.popleft()
-      result+=-(len(li)//2-li.index(A[key]))
-      key+=1
+    result += len(li)-k
+    li.rotate(-k)
+    li.popleft()
 print(result)
