@@ -10,3 +10,12 @@ grades = {
   'F':0
   }
 result = 0
+num = 0
+
+for _ in range(20):
+  a,b = input().split()[1:]
+  if b!='P':
+    num+=float(a)
+    result += float(a)*grades[b]
+
+print(result/num)
